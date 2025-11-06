@@ -1,0 +1,101 @@
+{% extends 'student/Base.html' %}
+{% load static %}
+
+{% block title %}
+MY DASHBOARD
+{% endblock %}
+
+{% block content %}
+<!-- Code to stop go to dashboard without login -->
+{% if not request.session.email %}
+<script>
+    alert("You have to login first. Press OK to go out");
+    location.href = "/register/";
+</script>
+{% endif %}
+
+<div class="row pb-4">
+    <div class="fs-3 text-center my-4"> Welcome <b class="text-mc-red"> in Dashboard </b></div>
+    <div class="col-sm-10 mx-auto">
+        <div class="row py-3">
+            <!-- Dashboard Card Start -->
+            <div class="col-sm-3 mb-3">
+                <a href="/student/profile/" style="text-decoration: none;">
+                    <div class="card rounded-5 w-75 mx-auto shadow-lg border border-0 das">
+                        <div class="text-center dashdiv"><i class="fas fa-user-circle dashic"
+                                style="background-color: #F8BBD0;"></i>
+                            <div class="h3 text-center pt-2 px-2">My Profile</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-3 mb-3">
+                <a href="/student/enotes/" style="text-decoration: none;">
+                    <div class="card rounded-5 w-75 mx-auto shadow-lg border border-0 das">
+                        <div class="text-center dashdiv"><i class="fas fa-file-alt dashic"
+                                style="background-color: #F8BBD0;"></i>
+                            <div class="h3 text-center pt-2 px-2">E - Notes</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-3 mb-3">
+                <a href="/student/lectures/" style="text-decoration: none;">
+                    <div class="card rounded-5 w-75 mx-auto shadow-lg border border-0 das">
+                        <div class="text-center dashdiv"><i class="fas fa-play-circle dashic"
+                                style="background-color: #F8BBD0;"></i>
+                            <div class="h3 text-center pt-2 px-2">Lecture Videos</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-3 mb-3">
+                <a href="/student/lecturecat/" style="text-decoration: none;">
+                    <div class="card rounded-5 w-75 mx-auto shadow-lg border border-0 das">
+                        <div class="text-center dashdiv"><i class="fas fa-folder-open dashic"
+                                style="background-color: #F8BBD0;"></i>
+                            <div class="h3 text-center pt-2 px-2">Lecture Categories</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Dashboard Card End -->
+        </div>
+        <div class="row py-3">
+            <!-- Dashboard Card Start -->
+            <div class="col-sm-4 mb-3">
+                <a href="/student/software/" style="text-decoration: none;">
+                    <div class="card rounded-5 w-75 mx-auto shadow-lg border border-0 das">
+                        <div class="text-center dashdiv"><i class="fas fa-toolbox dashic"
+                                style="background-color: #F8BBD0;"></i>
+                            <div class="h3 text-center pt-2 px-2">Software Kit</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-4 mb-3">
+                <a href="/student/task/" style="text-decoration: none;">
+                    <div class="card rounded-5 w-75 mx-auto shadow-lg border border-0 das">
+                        <div class="text-center dashdiv"><i class="fas fa-tasks dashic"
+                                style="background-color: #F8BBD0;"></i>
+                            <div class="h3 text-center pt-2 px-2">Assignments & Submissions</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-4 mb-3">
+                <a href="/student/HandS/" style="text-decoration: none;">
+                    <div class="card rounded-5 w-75 mx-auto shadow-lg border border-0 das">
+                        <div class="text-center dashdiv"><i class="fa-solid fa-question-circle dashic"
+                                style="background-color: #F8BBD0;"></i>
+                            <div class="h3 text-center pt-2 px-2">Help & Support / FAQ</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Dashboard Card End -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}

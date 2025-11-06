@@ -1,0 +1,154 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block title %}
+E-Learning Portal
+{% endblock %}
+
+{% block content %}
+
+<!-- Slider Start -->
+<div class="row slider">
+    <div class="col-sm-10 mx-auto">
+        <div class="row">
+            <div class="col-sm-7 pt-5 pe-5">
+                <div class="fs-1 text-center text-light text-uppercase mt-5">
+                    Welcome to<b class="text-danger"> E-Learning <i class="fa-solid fa-graduation-cap"></i> </b>
+                </div>
+                <div class="text-center text-light py-3 mt-5 fs-5">
+                    <p>
+                        Discover a world of knowledge at your fingertips. Join our vibrant community of learners and
+                        educators, where you can access expert-led online courses, engage in interactive classes, and
+                        explore a vast digital library—all designed to empower your learning journey.
+                    </p>
+                </div>
+                <a href="/register/" style="text-decoration: none;">
+                    <div class="d-block mx-auto me-3 text-light mt-5 mx-auto btn bg-mc-red py-2 fs-4 rounded-pill">
+                        Register Here
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-5 log my-5 p-5">
+                <span
+                    class="position-absolute top-0 translate-middle start-50 bg-mc-red py-2 px-4 text-light rounded-pill fs-4 border border-2 border-light">
+                    Contact Us
+                </span>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="text" required placeholder="Enter your full name" name="name" class="form-control txt">
+                    <input type="number" required placeholder="Enter your Mobile Number" name="mob"
+                        class="form-control txt">
+                    <input type="email" required placeholder="Enter your Email" name="email" class="form-control txt">
+                    <textarea name="msg" class="form-control ta" required
+                        placeholder="Enter Some words about yourself"></textarea>
+                    <input type="submit" value="Save"
+                        class="mt-5 ms-3 rounded-pill btn1 form-control bg-mc-red border-0">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Slider End -->
+
+
+
+<!-- About Start -->
+<div class="row py-4">
+    <p class="fs-1 pb-4 text-center">About <b class="text-mc-red">Us</b></p>
+    <div class="col-sm-6 p-4">
+        <p class="px-3 fs-5 mx-auto py-auto">
+            At the heart of our e-learning platform is a bold vision—to transform the
+            way people learn, grow, and succeed. In a world that's constantly evolving,
+            we believe education should be flexible, personalized, and inspiring. That’s
+            why we’ve created a dynamic digital space where learners of all
+            backgrounds can connect with skilled instructors, dive into interactive
+            online classes, tackle real-world home projects, and explore a vast digital
+            book library—all in one place.
+        </p>
+        <p class="px-3 fs-5 mx-auto py-auto">
+            Learning doesn't belong within walls—it belongs everywhere. That’s the
+            belief that drives our e-learning platform. We’ve built a space where
+            passion meets possibility, where students aren’t limited by time, place, or
+            pace.You’ll find mentors instead of instructors, real-world projects instead of rote lessons, and a
+            supportive community cheering you on every step of the way.
+        </p>
+    </div>
+    <div class="col-sm-6 p-4">
+        <img src="{% static 'images/about.jpg' %}" class="img-fluid rounded-5 w-75 d-block mx-auto py-auto"
+            alt="Server Error">
+    </div>
+</div>
+<!-- About End -->
+
+<hr>
+
+<!-- Services Start -->
+
+<div class="row py-4 mb-5">
+    <p class="text-center fs-3 mb-5"> Our <b class="text-mc-red">Services</b></p>
+    <div class="col-sm-10 mx-auto">
+        <div class="row py-2">
+            <div class="col-sm-4">
+                <div class="card mx-auto shadow-lg border border-0">
+                    <div class="row g-0">
+                        <div class="col-sm-3">
+                            <img src="{% static 'images/s3.jpg' %}" alt="Server Error" class="img-fluid">
+                        </div>
+                        <div class="col-sm-9 ps-2 p-2">
+                            <span class="fw-bold">
+                                ✅ Expert-Led Online Courses
+                            </span>
+                            <br>
+                            <span>
+                                High-quality, on-demand courses created and delivered by industry
+                                professionals and subject matter experts.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card mx-auto shadow-lg border border-0">
+                    <div class="row g-0">
+                        <div class="col-sm-3">
+                            <img src="{% static 'images/s2.jpg' %}" alt="Server Error" class="img-fluid">
+                        </div>
+                        <div class="col-sm-9 ps-2 p-2">
+                            <span class="fw-bold">
+                                ✅ Quizzes, Projects & Assessments
+                            </span>
+                            <br>
+                            <span>
+                                Hands-on practice through interactive quizzes, assignments, and capstone
+                                projects that test real-world application.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card mx-auto shadow-lg border border-0">
+                    <div class="row g-0">
+                        <div class="col-sm-3">
+                            <img src="{% static 'images/s8.jpg' %}" alt="Server Error" class="img-fluid">
+                        </div>
+                        <div class="col-sm-9 ps-2 p-2">
+                            <span class="fw-bold">
+                                ✅ Community Support & Discussion Forums
+                            </span>
+                            <br>
+                            <span>
+                                Join a vibrant learner community, engage in discussions, share ideas, and
+                                solve challenges together.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Services End -->
+
+{% endblock %}

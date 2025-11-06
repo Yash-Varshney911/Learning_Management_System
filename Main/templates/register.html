@@ -1,0 +1,60 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block title %}
+REGISTER YOURSELF
+{% endblock %}
+
+{% block content %}
+
+<div class="row my-4">
+    <div class="text-center fs-3">Sign<b class="text-mc-red"> Up <i class="fa-solid fa-user"></i></b>
+        <hr class="w-25 mx-auto">
+        Create your Account : Join the Learning Community and get started
+    </div>
+</div>
+<div class="row my-3">
+    <div class="col-sm-5 text-center mx-auto">
+        <div class="h6 text-primary">If you have already registered then click on below icon to 
+            <b class="text-mc-red">Login</b></div>
+        <a href="/login/">
+            <i class="fa-solid fa-circle-user rounded-pill ic"></i>
+        </a>
+    </div>
+</div>
+<div class="row my-5 pb-5">
+    <div class="col-sm-10 mx-auto">
+        <div class="row">
+            <div class="col-sm-6">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input name="name" type="text" required placeholder="Enter your First Name" class="form-control"
+                        style="height: 55px; border: none !important; background-color: #ececec !important; margin-bottom: 3%;">
+                    <input name="lname" type="text" required placeholder="Enter your Last Name" class="form-control"
+                        style="height: 55px; border: none !important; background-color: #ececec !important; margin-bottom: 3%;">
+                    <input name="email" type="email" required placeholder="Enter your valid Email" class="form-control"
+                        style="height: 55px; border: none !important; background-color: #ececec !important; margin-bottom: 3%;">
+                    <input name="mob" type="number" required placeholder="Enter your Mobile number" class="form-control"
+                        style="height: 55px; border: none !important; background-color: #ececec !important; margin-bottom: 3%;">
+                    <input name="wmob" type="number" placeholder="Enter your Whatsapp number"
+                        class="form-control"
+                        style="height: 55px; border: none !important; background-color: #ececec !important; margin-bottom: 3%;">
+                    <input name="passwd" type="password" required placeholder="Enter a strong password"
+                        class="form-control"
+                        style="height: 55px; border: none !important; background-color: #ececec !important; margin-bottom: 3%;">
+                    <input name="fu" type="file" required class="form-control"
+                        style="height: 55px; border: none !important; background-color: #ececec !important; margin-bottom: 3%;">
+                    <textarea name="address" required placeholder="Enter your address .." class="form-control"
+                        style="min-height: 80px; border: none !important; background-color: #ececec !important; margin-bottom: 3%; resize: none;"></textarea>
+                    <input type="submit" class="form-control bg-mc-red text-light fs-4 rounded-pill"
+                        style="height: 55px; border: none !important; margin-bottom: 3%;" value="Register Yourself">
+                </form>
+            </div>
+            <div class="col-sm-6 my-auto">
+                <img src="{% static 'images/left.png' %}" class="img-fluid w-100" alt="Server Error">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

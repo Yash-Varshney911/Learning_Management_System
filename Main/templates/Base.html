@@ -1,0 +1,438 @@
+{% load static %}
+
+<html>
+
+<head>
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+    <meta name="theme-color" content="#f50057">
+    <link rel="shortcut icon" href="{% static 'images/7.jpg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'js/all.js' %}"></script>
+    <style>
+        .bg-mc-red {
+            background-color: #f50057;
+        }
+
+        .bg-mc-purple {
+            background-color: #6A1B9A;
+        }
+
+        .text-mc-red {
+            color: #f50057;
+        }
+
+        .text-mc-purple {
+            color: #6A1B9A;
+        }
+
+        .text-mc,
+        .ic {
+            color: #f50057;
+            height: 28px;
+            width: 28px;
+            line-height: 28px;
+            border: 1px solid #f50057;
+            text-align: center;
+            transition: .5s;
+        }
+
+        .ic:hover {
+            transform: translateY(-5px);
+            transition: .5s;
+            background-color: #f50057;
+            color: aliceblue;
+        }
+
+        #menu {
+            background: transparent !important;
+        }
+
+        #menu ul li a {
+            color: white !important;
+        }
+
+        .im {
+            height: 150px;
+        }
+
+        .imgpic {
+            transition: 1s;
+            height: 300px;
+            border-radius: 20px;
+        }
+
+        .imgpic:hover {
+            transform: scale(1.1);
+            transition: 1s;
+        }
+
+        .imgteam {
+            height: 300px;
+            border-radius: 20px;
+        }
+
+        .catic {
+            height: 60px;
+            width: 60px;
+            font-size: 30px;
+            line-height: 60px;
+        }
+
+        .catic:hover {
+            transition: 2s;
+            color: white;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .catimg {
+            height: 160px;
+        }
+
+        .popcat {
+            transition: 1s;
+        }
+
+        .popcat:hover {
+            transform: scale(1.1);
+            transition: 1s;
+        }
+
+        .popimg {
+            height: 200px;
+        }
+
+        .slider {
+            height: 600px;
+            background: linear-gradient(45deg, rgba(107, 79, 89, 0.8), rgba(109, 79, 79, 0.7)),
+            url("{% static 'images/slider.jpg' %}");
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .log {
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+        }
+
+        .con {
+            /* background-color: rgba(51, 50, 50, 0.4);
+            backdrop-filter: blur(5px); */
+            border: 10px solid #f50057;
+            box-sizing: border-box;
+        }
+
+        .bgcon {
+            background-image: url("{% static 'images/contact.jpg' %}");
+            /* background-repeat: no-repeat; */
+            background-size: cover;
+        }
+
+        .txt {
+            height: 50px;
+            margin: 15px;
+            background: transparent;
+            border: none !important;
+            border-bottom: 4px solid #f50057 !important;
+            border-radius: 0px !important;
+        }
+
+        .ta {
+            height: 100px;
+            border-radius: 0px !important;
+            margin: 15px;
+            background: transparent;
+            border: none !important;
+            border-bottom: 4px solid #f50057 !important;
+            resize: none;
+        }
+
+        .btn1 {
+            height: 50px !important;
+            color: aliceblue !important;
+        }
+
+        .abc {
+            transition: 0.5s;
+        }
+
+        .abc:hover {
+            background-color: #f76195;
+            border-radius: 20px;
+            transition: 0.5s;
+        }
+
+        .logicon {
+            height: 65px;
+            width: 65px;
+            padding: 18px;
+        }
+
+        ::placeholder {
+            color: black !important;
+        }
+
+        .padi {
+            text-align: center;
+            transition: 1s;
+        }
+
+        .padi:hover {
+            transform: scale(1.1);
+            transition: 1s;
+            cursor: pointer;
+        }
+
+        #preloader {
+            background: #111111;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            z-index: 9999;
+            background-size: 20%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #preloader::after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 10px solid #f50057;
+            border-top-color: #333;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+            const loader = document.getElementById("preloader")
+            if (loader) {
+                loader.style.display = "none";
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader"></div>
+    <!-- Preloader End -->
+
+    <div class="container-fluid">
+        <!-- NavBar Start -->
+        <div class="row">
+            <div class="col-sm-10 mx-auto py-4">
+                <div class="row">
+                    <div class="col-sm-3 padi">
+                        <div class="fs-2 text-mc-red fw-bold">E-Learning <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 padi">
+                        <b>
+                            <i class="fa-solid fa-envelope mt-2 text-danger fs-2"></i>
+                            Mail Us
+                        </b>
+                        greatvarshney983734@gmail.com
+                    </div>
+                    <div class="col-sm-3 padi">
+                        <b>
+                            <i class="fa-solid fa-phone mt-2 text-danger fs-2"></i>
+                            Call Us
+                        </b>
+                        +91-9119015065
+                    </div>
+                    <div class="col-sm-2 pt-3 text-center">
+                        <a href="https://youtube.com/@yashvarshney1?si=sw-72G36H-HufadU" target="_blank"
+                            style="text-decoration: none;">
+                            <i class="fa-brands ic fa-square-youtube"></i>
+                        </a>
+                        <a href="#" target="_blank" style="text-decoration: none;">
+                            <i class="fa-brands ic fa-linkedin"></i>
+                        </a>
+                        <a href="#" target="_blank" style="text-decoration: none;">
+                            <i class="fa-brands ic fa-facebook"></i>
+                        </a>
+                        <a href="https://wa.me/9119015065" target="_blank" style="text-decoration: none;">
+                            <i class="fa-brands ic fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- NavBar End -->
+
+
+        <!-- Menu Start -->
+        <div class="row bg-mc-red">
+            <div class="col-sm-10 mx-auto">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary" id="menu">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item px-3 abc">
+                                    <a class="nav-link" href="/index/">
+                                        <i class="fa-solid fa-house"></i> Home
+                                    </a>
+                                </li>
+                                <li class="nav-item px-3 abc">
+                                    <a class="nav-link" href='/about/'>
+                                        <i class="fa-solid fa-circle-info"></i> About Us
+                                    </a>
+                                </li>
+                                <li class="nav-item px-3 abc">
+                                    <a class="nav-link" href="/gallery/">
+                                        <i class="fa-solid fa-image"></i> Gallery
+                                    </a>
+                                </li>
+                                <li class="nav-item px-3 abc">
+                                    <a class="nav-link" href="/team/">
+                                        <i class="fa-solid fa-people-group"></i> Team
+                                    </a>
+                                </li>
+                                <li class="nav-item px-3 abc">
+                                    <a class="nav-link" href="/service/">
+                                        <i class="fas fa-cogs"></i> Services
+                                    </a>
+                                </li>
+                                <li class="nav-item px-3 abc">
+                                    <a class="nav-link" href="/contact/">
+                                        <i class="fas fa-phone"></i> Contact Us
+                                    </a>
+                                </li>
+                                <li class="nav-item px-3 abc">
+                                    <a class="nav-link" href="/register/">
+                                        <i class="fa-solid fa-address-card"></i> Register Yourself
+                                    </a>
+                                </li>
+                                <li class="nav-item px-3 abc">
+                                    <a class="nav-link" href="/login/">
+                                        <i class="fa-solid fa-user"></i> Log in
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Menu End -->
+
+        {% block content %}
+
+        {% endblock %}
+
+        <!-- Footer Start -->
+        <div class="row" style="background-color: black;border-radius: 30px 30px 0px 0px;">
+            <div class="col-sm-10 mx-auto">
+                <div class="row p-5">
+                    <div class="col-sm-3 text-light ps-3">
+                        <div class="h2 text-mc-red">About Website</div>
+                        <div>
+                            Discover a world of knowledge at your fingertips. Join our vibrant community of learners
+                            and
+                            educators, where you can access expert-led online courses, engage in interactive classes,
+                            and
+                            explore a vast digital library—all designed to empower your learning journey.
+                        </div>
+                    </div>
+                    <div class="col-sm-3 text-light p-5">
+                        <a href="/index/" class="text-light" style="text-decoration: none;">
+                            <p>
+                                <i class="fa-solid fa-house"></i>&nbsp;&nbsp;Home
+                            </p>
+                        </a>
+                        <a href="/about/" class="text-light" style="text-decoration: none;">
+                            <p>
+                                <i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;About Us
+                            </p>
+                        </a>
+                        <a href="/gallery/" class="text-light" style="text-decoration: none;">
+                            <p>
+                                <i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;Gallery
+                            </p>
+                        </a>
+                        <a href="/team/" class="text-light" style="text-decoration: none;">
+                            <p>
+                                <i class="fa-solid fa-people-group"></i>&nbsp;&nbsp;Team
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-sm-3 text-light p-5">
+                        <a href="/login/" class="text-light" style="text-decoration: none;">
+                            <p>
+                                <i class="fa-solid fa-house"></i>&nbsp;&nbsp;Login
+                            </p>
+                        </a>
+                        <a href="/register/" class="text-light" style="text-decoration: none;">
+                            <p>
+                                <i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;Register
+                            </p>
+                        </a>
+                        <a href="/service/" class="text-light" style="text-decoration: none;">
+                            <p>
+                                <i class="fa-solid fa-list"></i>&nbsp;&nbsp;Services
+                            </p>
+                        </a>
+                        <a href="/contact/" class="text-light" style="text-decoration: none;">
+                            <p>
+                                <i class="fas fa-headset"></i>&nbsp;&nbsp;Contact Us
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-sm-3 text-light">
+                        <div class="h3 pb-2 text-mc-red">Get in Touch</div>
+                        <p><i class="fa-solid fa-location-dot"></i>
+                            Ganesh Colony Gali No. 9A, Chandausi, Sambhal, Uttar Pradesh - 244412
+                        </p>
+                        <p><i class="fa-solid fa-phone"></i> +91-9119015065 </p>
+                        <div class="mt-5">
+                            <a href="https://youtube.com/@yashvarshney1?si=sw-72G36H-HufadU" target="_blank"
+                                style="text-decoration: none;">
+                                <i class="fa-brands ic fa-square-youtube"></i>
+                            </a>
+                            <a href="#" target="_blank" style="text-decoration: none;">
+                                <i class="fa-brands ic fa-linkedin"></i>
+                            </a>
+                            <a href="#" target="_blank" style="text-decoration: none;">
+                                <i class="fa-brands ic fa-facebook"></i>
+                            </a>
+                            <a href="https://wa.me/9119015065" target="_blank" style="text-decoration: none;">
+                                <i class="fa-brands ic fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright Start -->
+            <div class="text-light py-2 text-end mt-5">
+                &copy; 2025 Er. Yash Varshney. All Rights Reserved.
+            </div>
+            <!-- Copyright End -->
+
+        </div>
+        <!-- Footer End -->
+    </div>
+</body>
+
+</html>

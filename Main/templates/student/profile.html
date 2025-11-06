@@ -1,0 +1,75 @@
+{% extends 'student/Base.html' %}
+{% load static %}
+
+{% block title %}
+MY PROFILE
+{% endblock %}
+
+{% block content %}
+
+<!-- Code to stop go to dashboard without login -->
+{% if not request.session.email %}
+<script>
+    alert("You have to login first. Press OK to go out");
+    location.href = "/register/";
+</script>
+{% endif %}
+
+<div class="row">
+    <div class="col-sm-8 p-5 mx-auto">
+        <p class="fs-3 text-center pb-5">My <b class="text-mc-purple">Profile</b></p>
+        {% for r in userinfo %}
+        <div class="card position-relative shadow-lg rounded-3 mt-5 mb-5 pb-5">
+            <img src="/{{ r.picture }}"
+                class="img-fluid position-absolute top-0 start-50 translate-middle border border-0 border-dark rounded-circle"
+                alt="Server Error" height="150px" width="150px">
+            <div class="h3 text-center username">{{ r.name }}
+                <b class="text-mc-purple"> {{ r.lname }} </b>
+            </div>
+            <p class="text-center">{{ r.email }}</p>
+            <div class="row g-0 py-2 ps-5 mt-3">
+                <div class="col-sm-3 ps-4">
+                    <i class="fa-solid fa-phone"></i> Mob No.
+                </div>
+                <div class="col-sm-9">
+                    +91-{{ r.mobile }}
+                </div>
+            </div>
+            <div class="row g-0 py-2 ps-5">
+                <div class="col-sm-3 ps-4">
+                    <i class="fa-brands fa-whatsapp"></i> Whatsapp No.
+                </div>
+                <div class="col-sm-9">
+                    +91-{{ r.Whatmobile }}
+                </div>
+            </div>
+            <div class="row g-0 py-2 ps-5">
+                <div class="col-sm-3 ps-4">
+                    <i class="fa-solid fa-book-open"></i> Batch
+                </div>
+                <div class="col-sm-9">
+                    {{ r.batch }}
+                </div>
+            </div>
+            <div class="row g-0 py-2 ps-5">
+                <div class="col-sm-3 ps-4">
+                    <i class="fa-solid fa-location-dot"></i> Address
+                </div>
+                <div class="col-sm-9">
+                    {{ r.address }}
+                </div>
+            </div>
+            <div class="row g-0 py-2 ps-5">
+                <div class="col-sm-3 ps-4">
+                    <i class="fa-solid fa-calendar-days"></i> Registration Date
+                </div>
+                <div class="col-sm-9">
+                    {{ r.regdate }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

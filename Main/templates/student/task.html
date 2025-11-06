@@ -1,0 +1,61 @@
+{% extends 'student/Base.html' %}
+{% load static %}
+
+{% block title %}
+All Tasks
+{% endblock %}
+
+{% block content %}
+
+<!-- Code to stop go to dashboard without login -->
+{% if not request.session.email %}
+<script>
+    alert("You have to login first. Press OK to go out");
+    location.href = "/register/";
+</script>
+{% endif %}
+
+<div class="row my-4">
+    <div class="text-center fs-3">My <b class="text-mc-red">Tasks</b>
+        <hr class="w-25 mx-auto">
+        <div class="h4">Do all tasks for making your tech life easier</div>
+    </div>
+</div>
+<div class="row mb-5 pb-5">
+    <div class="col-sm-8 mx-auto">
+        <form action="/student/submit/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for r in da %}
+            <table class="table table-striped">
+                <tr>
+                    <th>Title / Description</th>
+                    <th>Download your task</th>
+                    <th>Upload your task</th>
+                    <th>Submit</th>
+                </tr>
+                <tr>
+                    <td>
+                        <b>{{ r.title }}</b>
+                        <p> {{ r.task_info }} </p>
+                    </td>
+                    <td>
+                        <a href="/{{ r.taskfile }}" class=" btn btn-success">
+                            <i class="fa-solid fa-download"></i>Download
+                        </a>
+                    </td>
+                    <td>
+                        <input type="file" name="fu">
+                        <input type="hidden" value="{{ r.title }}" name="title">
+                        <input type="hidden" value="{{ r.id }}" name="tid">
+                    </td>
+                    <td>
+                        <input type="submit" value="Upload" class="btn btn-danger">
+                    </td>
+                </tr>
+            </table>
+            {% endfor %}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

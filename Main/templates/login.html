@@ -1,0 +1,43 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block title %}
+LOGIN YOURSELF
+{% endblock %}
+
+{% block content %}
+
+<div class="row my-4">
+    <div class="text-center fs-3">Sign<b class="text-mc-red"> in <i class="fa-solid fa-key fa-spin"></i></b>
+        <hr class="w-25 mx-auto">
+        Secure Access Point : Sign in to Start Your Learning Journey
+    </div>
+</div>
+<div class="row my-5">
+    <div class="col-sm-5 mx-auto">
+        <form method="post">
+            {% csrf_token %}
+            User id
+            <div class="input-group mb-3 shadow-lg">
+                <i class="input-group-text logicon bg-mc-red text-light"><i class="fa-solid fa-user fs-2"></i></i>
+                <input name="email" type="email" required placeholder="Enter userid" class="form-control">
+            </div>
+            password
+            <div class="input-group mb-5 shadow-lg">
+                <i class="input-group-text logicon bg-mc-red text-light"><i class="fa-solid fa-key fs-2"></i></i>
+                <input name="passwd" type="password" required placeholder="Enter your password" class="form-control">
+            </div>
+            <input type="submit" value="Log in" class="form-control bg-mc-red text-light px-5 py-2 fs-3 rounded-pill">
+        </form>
+        <div class="row my-5 pb-5">
+            <div class="col-sm-12 text-center mx-auto">
+                <div>Don't have an account? </div>
+                <a href="/register/" class="text-mc-red">
+                    <div class="fw-bold">Register Yourself <i class="fa-solid fa-address-card"></i></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

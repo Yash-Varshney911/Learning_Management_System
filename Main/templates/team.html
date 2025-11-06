@@ -1,0 +1,30 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block title %}
+TEAM MEMBERS
+{% endblock %}
+
+{% block content %}
+
+<!-- Team Start -->
+<div class="row py-4">
+    <div class="col-sm-10 mx-auto">
+        <p class="text-center fs-3"> Our <b class="text-mc-red">Team</b></p>
+        <div class="row py-3">
+            {% for r in team %}
+            <div class="col-sm-4 py-2">
+                <div class="card shadow-lg">
+                    <img src="../{{ r.picture }}" class="card img-top imgteam">
+                    <div class="text-center pt-1 h3 text-success">{{ r.name }}</div>
+                    <div class="text-center h5">{{ r.post }}</div>
+                    <div class="text-center pb-2">{{ r.exp }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Team End -->
+
+{% endblock %}

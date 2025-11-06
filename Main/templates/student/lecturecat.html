@@ -1,0 +1,46 @@
+{% extends 'student/Base.html' %}
+{% load static %}
+
+{% block title %}
+LECTURE CATEGORIES
+{% endblock %}
+
+{% block content %}
+
+<!-- Code to stop go to dashboard without login -->
+{% if not request.session.email %}
+<script>
+    alert("You have to login first. Press OK to go out");
+    location.href = "/register/";
+</script>
+{% endif %}
+
+<div class="row my-5 pb-5">
+    <div class="text-center fs-3">Lecture<b class="text-mc-red"> Category <i class="fa-solid fa-list"></i></b>
+        <hr class="w-25 mx-auto">
+        Explore Every Topic : Structured Lectures
+    </div>
+</div>
+<div class="row my-5 pb-3">
+    <div class="col-sm-10 bg-light mx-auto">
+        <div class="row">
+            {% for r in categories %}
+            <div class="col-sm-3 p-2">
+                <div class="card shadow-lg p-2 mb-3 border-0" style="position: relative;">
+                    <span
+                        class="position-absolute top-0 start-50 translate-middle btn text-light bg-mc-red fs-5 rounded-pill">
+                        {{ r.title }}
+                    </span>
+                    <a href="/student/lectures?cid={{ r.id }}" target="_blank">
+                        <img src="/{{ r.picture }}" alt="Server Error" class="card-img-top p-3" height="200px">
+                    </a>
+                    <div class="h5 p-3 text-center text-mc-purple">{{ r.batch_name }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

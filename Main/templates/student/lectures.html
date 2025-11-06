@@ -1,0 +1,62 @@
+{% extends 'student/Base.html' %}
+{% load static %}
+
+{% block title %}
+Lecture Videos
+{% endblock %}
+
+{% block content %}
+
+<!-- Code to stop go to dashboard without login -->
+{% if not request.session.email %}
+<script>
+    alert("You have to login first. Press OK to go out");
+    location.href = "/register/";
+</script>
+{% endif %}
+
+<div class="row my-5 pb-4">
+    <div class="text-center fs-3">Lecture<b class="text-mc-red"> Videos</b>
+        <hr class="w-25 mx-auto">
+        Learn Visually : Engaging Video Lectures For Clarity and Impact
+    </div>
+</div>
+<div class="row my-4">
+    <div class="col-sm-10 mx-auto bg-light shadow-lg p-5">
+        <div class="row">
+            <div class="col-sm-11 mx-auto shadow-lg my-3">
+                {% for r in vdo %}
+                <div class="card mb-3 border-0 shadow-lg my-2">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <iframe src="{{ r.vlink }}" title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="img-thumbnail">
+                            </iframe>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ r.title }}</h5>
+                                <p class="card-text">
+                                    {{ r.video_info }}
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-body-secondary">
+                                        <span class="fw-bold text-mc-red">
+                                            <i class="fa-solid fa-calendar"></i> Posted Date :
+                                        </span>{{ r.posted_date }}
+                                    </small>
+                                    <span class="badge bg-mc-red float-end"> {{ r.category }} </span>
+                                </p>
+                            </div>
+                            <!-- </a> -->
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

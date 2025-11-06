@@ -1,0 +1,291 @@
+{% load static %}
+
+<html>
+
+<head>
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+    <meta name="theme-color" content="#6A1B9A">
+    <link rel="shortcut icon" href="{% static 'images/1.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'js/all.js' %}"></script>
+    <style>
+        .bg-mc-red {
+            background-color: #f50057;
+        }
+
+        .bg-mc-purple {
+            background-color: #6A1B9A;
+        }
+
+        .text-mc-red {
+            color: #f50057;
+        }
+
+        .text-mc-purple {
+            color: #6A1B9A;
+        }
+
+        .text-mc,
+        .ic {
+            color: #6A1B9A;
+            height: 28px;
+            width: 28px;
+            line-height: 28px;
+            border: 1px solid #6A1B9A;
+            text-align: center;
+            transition: .5s;
+        }
+
+        .ic:hover {
+            transform: translateY(-5px);
+            transition: .5s;
+            background-color: #6A1B9A;
+            color: aliceblue;
+        }
+
+        #menu {
+            background: transparent !important;
+        }
+
+        #menu ul li a {
+            color: white !important;
+        }
+
+        .abc {
+            transition: 0.5s;
+            color: aliceblue;
+        }
+
+        .abc:hover {
+            background-color: #8f5caf;
+            border-radius: 20px;
+            transition: 0.5s;
+        }
+
+        .padi {
+            transition: 1s;
+        }
+
+        .padi:hover {
+            transform: scale(1.2);
+            transition: 1s;
+            cursor: pointer;
+        }
+
+        .ic {
+            color: #6A1B9A;
+            height: 28px;
+            width: 28px;
+            line-height: 28px;
+            border: 1px solid #6A1B9A;
+            text-align: center;
+            transition: .5s;
+        }
+
+        .ic:hover {
+            transform: translateY(-5px);
+            transition: .5s;
+            background-color: #6A1B9A;
+            color: aliceblue;
+        }
+
+        .das {
+            transition: 1s;
+        }
+
+        .das:hover {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        .dashic {
+            height: 50px;
+            width: 50px;
+            border-radius: 10px;
+            font-size: 30px;
+            line-height: 40px;
+            padding: 10px;
+        }
+
+        .dashdiv {
+            margin-top: 35px;
+            margin-bottom: 30px;
+        }
+
+        .username {
+            margin-top: 100px;
+        }
+
+        #preloader {
+            background: #111111;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            z-index: 9999;
+            background-size: 20%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #preloader::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 10px solid #6A1B9A;
+            border-top-color: #333;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+            const loader = document.getElementById("preloader")
+            if (loader) {
+                loader.style.display = "none";
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader"></div>
+    <!-- Preloader End -->
+
+
+    <div class="container-fluid">
+
+        <!-- NavBar Start -->
+        <div class="row">
+            <div class="col-sm-9 mx-auto pt-3">
+                <div class="row">
+                    <div class="col-sm-3 pt-2 padi">
+                        <div class="fs-2 text-mc-purple fw-bold">E-Learning <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 pt-2 padi">
+                        <b>
+                            <i class="fa-solid ic fa-envelope mt-2"></i>
+                            Mail Us
+                        </b>
+                        greatvarshney983734@gmail.com
+                    </div>
+                    <div class="col-sm-3 pt-2 padi">
+                        <b>
+                            <i class="fa-solid ic fa-phone mt-2"></i>
+                            Call Us
+                        </b>
+                        +91-9119015065
+                    </div>
+                    <div class="col-sm-2 pt-1">
+                        {% if request.session.email %}
+                        <img src="../../{{ request.session.userpic }}" class="img-fluid rounded-circle" height="50px"
+                            width="50px" alt="Server Error">
+                        <br>
+                        <b>{{request.session.name}} {{request.session.mname}} {{request.session.lname}}</b>
+                        {{ request.session.email }}
+                        <!-- {{ request.session.batch }} -->
+                        {% else %}
+                        <i class="fa-solid fa-circle-user fs-1"></i>
+                        <b>Logged out.</b>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- NavBar End -->
+
+        <!-- Vertical Menu start -->
+        <div class="row bg-mc-purple py-2 rounded-2 mt-4">
+            <div class="col-sm-1">
+                <a class="text-light mx-auto ps-3 text-center d-block" data-bs-toggle="offcanvas"
+                    href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><i
+                        class="fa-solid fa-bars fs-4"></i></a>
+
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+                    aria-labelledby="offcanvasExampleLabel">
+                    <div class="offcanvas-header">
+                        <div class="offcanvas-title padi mx-auto" id="offcanvasExampleLabel">
+                            <div class="ms-5 fs-2 text-mc-purple fw-bold">E-Learning
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body bg-mc-purple">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item mx-4 px-3 abc my-2">
+                                <a class="nav-link" href="/student/dashboard/">
+                                    <i class="fa-solid fa-house"></i> Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item mx-4 px-3 abc my-2">
+                                <a class="nav-link" href='/student/lecturecat/'>
+                                    <i class="fa-solid fa-layer-group"></i> Lecture category
+                                </a>
+                            </li>
+                            <li class="nav-item mx-4 px-3 abc my-2">
+                                <a class="nav-link" href="/student/lectures/">
+                                    <i class="fa-solid fa-video"></i> Lecture Video
+                                </a>
+                            </li>
+                            <li class="nav-item mx-4 px-3 abc my-2">
+                                <a class="nav-link" href="/student/enotes/">
+                                    <i class="fa-solid fa-note-sticky"></i> E-Notes
+                                </a>
+                            </li>
+                            <li class="nav-item mx-4 px-3 abc my-2">
+                                <a class="nav-link" href="/student/software/">
+                                    <i class="fa-solid fa-toolbox"></i> Software Kit
+                                </a>
+                            </li>
+                            <li class="nav-item mx-4 px-3 abc my-2">
+                                <a class="nav-link" href="/student/profile/">
+                                    <i class="fa-solid fa-circle-user"></i> My Profile
+                                </a>
+                            </li>
+                            <li class="nav-item mx-4 px-3 abc my-2">
+                                <a class="nav-link" href="/student/task/">
+                                    <i class="fa-solid fa-tasks"></i> Your Tasks
+                                </a>
+                            </li>
+                            <li class="nav-item mx-4 px-3 abc my-2">
+                                <a class="nav-link" href="/student/HandS/">
+                                    <i class="fa-solid fa-question-circle"></i> Help & Support
+                                </a>
+                            </li>
+                            <li class="nav-item mx-4 px-3 abc my-2">
+                                <a class="nav-link" href="/student/signout/">
+                                    <i class="fa-solid fa-power-off"></i> Sign Out
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Vertical Menu end -->
+
+        {% block content %}{% endblock %}
+
+        <!-- Copyright Start -->
+        <div class="row bg-dark text-light d-block text-end py-2">
+            &copy; 2025 Er. Yash Varshney. All Rights Reserved.
+        </div>
+        <!-- Copyright End -->
+    </div>
+</body>

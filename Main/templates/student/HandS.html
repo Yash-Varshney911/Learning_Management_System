@@ -1,0 +1,58 @@
+{% extends 'student/Base.html' %}
+{% load static %}
+
+{% block title %}
+HELPDESK
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .fee {
+        background: linear-gradient(90deg, #ff9933, #ffffff, #138808);
+        backdrop-filter: blur(5px);
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .txt {
+        height: 50px;
+        margin: 15px;
+        background: transparent;
+        border: none !important;
+        border-bottom: 4px solid #f50057 !important;
+        border-radius: 0px !important;
+    }
+
+    .ta {
+        height: 100px;
+        border-radius: 0px !important;
+        margin: 15px;
+        background: transparent;
+        border: none !important;
+        border-bottom: 4px solid #f50057 !important;
+        resize: none;
+    }
+
+    .btn1 {
+        height: 50px !important;
+        color: aliceblue !important;
+    }
+</style>
+
+<div class="row fee">
+    <div class="col-sm-10 mx-auto fee p-5 rounded-5">
+        <span
+            class="position-absolute top-0 translate-middle start-50 bg-mc-red py-2 px-4 text-light rounded-pill fs-4 border border-2 border-light"> Help & Support or you can send your query
+        </span>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" required placeholder="Enter your full name" name="name" class="form-control txt">
+            <input type="number" required placeholder="Enter your Mobile Number" name="mob" class="form-control txt">
+            <textarea name="msg" class="ta form-control" required placeholder="Enter you query"></textarea>
+            <input type="submit" value="Save" class="ms-3 mt-5 btn1 form-control bg-mc-red border-0">
+        </form>
+    </div>
+</div>
+
+{% endblock %}
